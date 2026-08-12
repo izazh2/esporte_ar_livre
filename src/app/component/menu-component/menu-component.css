@@ -1,4 +1,4 @@
-#cabecalho, #logo, #menu{
+#cabecalho, #logo, #menu-ul{
     display: flex;
     align-items: center;
 }
@@ -19,7 +19,7 @@
 #logo{
     width: 200px;
     height: 150px;
-    background-color: rgb(195, 152, 235);
+    color: var(--branca);
 }
 
 #menu-ul{
