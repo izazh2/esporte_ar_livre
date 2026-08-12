@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Mulish;
+}
+
+:root{
+    --cor_primaria: #8B008B;
+    --cor_segundaria: #DDA0DD;
+    --branca: #ffffff;
+    --botao01: #800080;
+    --botao02: #b30b7b;
+    --cor01: #DB7093 ;
+    --cor02: #df4579 ;
+}
