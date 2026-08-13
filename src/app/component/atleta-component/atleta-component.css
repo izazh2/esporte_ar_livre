@@ -6,20 +6,25 @@
     color: var(--cor_secundaria);
 }
 
+h2{
+    text-transform: uppercase;
+    color: var(--botao01);
+}
+
 label{
     display: block;
     padding: 15px 0px;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: 5px
 }
 
 input{
     height: 35px;
-    padding: 10px;
-    font-size: 14px ;
+    padding: 10px ;
+    font-size: 14px;
 }
 
-input[typr=radio]{
+input[type=radio]{
     width: 25px;
     height: 25px;
     margin: 0px 10px;
@@ -43,19 +48,19 @@ input[typr=radio]{
 
 button{
     width: 200px;
-    height: 180px;
+    height: 35px;
     cursor: pointer;
     border: none;
 }
 
 #btnAdd{
     margin-right: 10px;
-    background-color: var(---botao01);
+    background-color: var(--botao01);
     color: var(--branca);
 }
 
 #btnLimpar{
     margin-left: 10px;
     background-color: var(--botao02);
-    color: var(--branca) ;
+    color: var(--branca);
 }
