@@ -9,6 +9,7 @@
 h2{
     text-transform: uppercase;
     color: var(--botao01);
+    padding-bottom:35px ;
 }
 
 label{
