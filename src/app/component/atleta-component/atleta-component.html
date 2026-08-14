@@ -1,37 +1,38 @@
 <div id="div-form">
-    <h2>Cadastro Atleta</h2>
-
-    <form id="form-atleta" (submit)="salvarAtleta" >
-
+    <h2>Cadastro Atleta </h2>
+    
+    <form id="form-atleta" (submit)="salvarAtleta()">
         <label for="nome">Nome</label>
-        <input type="text" name="nome" [(ngModel)]="nome" id="nome" class="input01" required maxlength="80" placeholder="Informe seu nome">
+        <input type="text" name="nome" [(ngModel)] = "nome" id="nome" class="input01" required maxlength="80" placeholder="Informe seu nome">
 
         <label for="cpf">CPF</label>
-        <input type="number" name="cpf" [(ngModel)]="cpf" id="cpf" class="input02" required maxlength="14" placeholder="Informe seu cpf">
+        <input type="text" name="cpf" [(ngModel)] ="cpf" id="cpf" class="input02" required maxlength="14" placeholder="Informe seu cpf">
 
-        <label for="sexo">Sexo</label>
-        <input type="radio" name="sexo" [(ngModel)]="sexo" id="sexoM" class="btnSelecao" value="M" >Masculino
-        <input type="radio" name="sexo" [(ngModel)]="sexo" id="sexoF" class="btnSelecao" value="F" > Feminino
-        <input type="radio" name="sexo" [(ngModel)]="sexo" id="sexoN" class="btnSelecao" value="N" >Não se identificar
- 
+        <label for="sexo">sexo</label>
+        <input type="radio" name="sexo" id="sexoM" class="btnSelecao" value="M" [(ngModel)] = "sexo"> Masculino
+        <input type="radio" name="sexo" id="sexoF" class="btnSelecao" value="F" [(ngModel)] = "sexo"> Feminino
+        <input type="radio" name="sexo" id="sexoN" class="btnSelecao" value="N"  [(ngModel)] = "sexo"> Não se Identificar
+
         <label for="cep">CEP</label>
-        <input type="number" name="cep" [(ngModel)]="cep" id="cep" class="input02" required maxlength="9" placeholder="Informe seu cep">
+        <input type="text" name="cep"  [(ngModel)] = "cep" id="cep" class="input02" required maxlength="9" placeholder="Informe seu cep" >
 
         <label for="rua-logradouro">Rua/Logradouro</label>
-        <input type="number" name="rua-logradouro"  [(ngModel)]="ruaLogradouro" id="rua-logradouro" class="input01" required maxlength="9" placeholder="Informe seu rua/logradouro">
+        <input type="text" name="rua-logradouro"  [(ngModel)] = "ruaLogradouro" id="rua-logradouro" class="input01" required maxlength="100" placeholder="Informe rua/logradouro">
 
         <label for="bairro">Bairro</label>
-        <input type="text" name="bairro" [(ngModel)]="bairro" id="bairro" class="input02" required maxlength="20" placeholder="Informe seu bairro">
+        <input type="text" name="bairro"  [(ngModel)] = "bairro" id="bairro" class="input02" required maxlength="20"
+            placeholder="Informe seu bairro">
 
         <label for="cidade">Cidade</label>
-        <input type="text" name="cidade" [(ngModel)]="cidade" id="cidade" class="input02" required maxlength="60" placeholder="Informe sua cidade">
+        <input type="text" name="cidade"  [(ngModel)] = "cidade" id="cidade" class="input02" required maxlength="60"
+            placeholder="Informe seu cidade">
 
         <label for="uf">UF</label>
-        <input type="text" name="uf"  [(ngModel)]="uf" id="uf" class="input02" required maxlength="2" placeholder="Informe seu uf">
+        <input type="text" name="uf" [(ngModel)] = "uf" id="uf" class="input02" required maxlength="2" placeholder="Informe seu uf">
 
         <div id="div-btns">
-            <button type="submit" id="btnAdd" >Cadastrar Atleta</button>
-            <button type="reset" id="btnLimpar">Limpar</button>
+            <button type="submit" id="btnAdd">Cadastrar Atleta </button>
+            <button type="reset" id="btnLimpar"> Cadastrar Atleta </button>
         </div>
 
     </form>
