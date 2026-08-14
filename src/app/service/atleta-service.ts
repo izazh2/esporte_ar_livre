@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { Pessoa } from '../models/pessoa';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class AtletaService {
     private atletas: Pessoa[] = []
 
