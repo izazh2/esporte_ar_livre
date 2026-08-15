@@ -14,4 +14,19 @@ export class CorridaComponent {
   descricao = ''
   data = ''
   
+  constructor(private corridaService: CorridaService){}
+
+  exibe(){
+    console.log(this.descricao, this.data)
+  }
+
+  salvarCorrida(){
+    const corrida = new Corrida()
+    corrida.descricao = this.descricao
+    corrida.data = this.data
+
+    this.corridaService.adicionar(corrida)
+
+    this.corridaService.listar()
+  }
 }
