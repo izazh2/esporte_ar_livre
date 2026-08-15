@@ -1,0 +1,67 @@
+#div-form{
+    width: 1000px;
+    min-height: 650px;
+    margin: 20px auto;
+    padding: 25px;
+    color:var(--cor_secundaria);
+}
+
+h2{
+    text-transform: uppercase;
+    color: var(--botao01);
+    padding-bottom:35px ;
+}
+
+label{
+    display: block;
+    padding: 15px 0px;
+    text-transform: uppercase;
+    letter-spacing: 5px
+}
+
+input{
+    height: 35px;
+    padding: 10px ;
+    font-size: 14px;
+}
+
+input[type=checkbox]{
+    width: 20px;
+    height: 15px;
+    margin: 0px 10px;
+}
+
+.input01{
+    width: 650px;
+}
+
+.input02{
+    width: 350px;
+}
+
+#btns-div{
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    width: 200px;
+    height: 35px;
+    cursor: pointer;
+    border: none;
+}
+
+#btnAdd{
+    margin-right: 10px;
+    background-color: var(--botao01);
+    color: var(--branca);
+}
+
+#btnLimpa{
+    margin-left: 10px;
+    background-color: var(--botao02);
+    color: var(--branca);
+}
