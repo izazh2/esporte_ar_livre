@@ -6,12 +6,12 @@
         <textarea name="descricao" id="descricao" class="input01" rows="3" cols="100" required maxlength="200" placeholder="Ex: 5 Maratona Nortuna da Corrida" ></textarea>
 
         <label for="dataCorrida">Data da corrida</label>
-        <input type="date" class="input02" name="dataCorrida" id="dataCorrida">
+        <input type="date" class="input02" name="dataCorrida" [(ngModel)]="data" id="dataCorrida">
 
         <label for="distancia">Distância Disponíveis</label>
-        <input type="checkbox" name="dist5" id="distancia5">5km
-        <input type="checkbox" name="dist10" id="distancia10">10km
-        <input type="checkbox" name="dist20" id="distancia5">20km
+        <input type="checkbox" name="dist5" [(ngModel)]="dist5" id="distancia5">5km
+        <input type="checkbox" name="dist10" [(ngModel)]="dist10" id="distancia10">10km
+        <input type="checkbox" name="dist20" [(ngModel)]="dist20"id="distancia5">20km
 
         <div id="btns-div">
             <button type="submit" id="btnAdd">Cadastrar Corrida</button>
