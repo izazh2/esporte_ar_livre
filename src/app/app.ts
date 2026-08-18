@@ -6,11 +6,11 @@ import { AtletaComponent } from './component/atleta-component/atleta-component';
 import { HomeComponent } from './component/home-component/home-component';
 import { CorridaComponent } from './component/corrida-component/corrida-component';
 import { ListarCorridaComponent } from './component/listar-corrida-component/listar-corrida-component';
-import { ListarAtletaComponent } from './component/listar-atleta-component/listar-atleta-component';
+import { AtletaListaComponent } from './component/listar-atleta-component/listar-atleta-component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MenuComponent, AtletaComponent, HomeComponent, CorridaComponent, ListarAtletaComponent, ListarCorridaComponent],
+  imports: [RouterOutlet, MenuComponent, AtletaComponent, HomeComponent, CorridaComponent, AtletaListaComponent, ListarCorridaComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

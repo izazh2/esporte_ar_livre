@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-atleta-lista-component',
   imports: [],
-  templateUrl: './atleta-lista-component.html',
-  styleUrl: './atleta-lista-component.css',
+  templateUrl: './listar-atleta-component.html',
+  styleUrl: './listar-atleta-component.css',
 })
 export class AtletaListaComponent {
 
