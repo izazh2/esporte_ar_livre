@@ -14,7 +14,7 @@
         <input type="checkbox" name="dist20" [(ngModel)]="dist20"id="distancia5">20km
 
         <div id="btns-div">
-            <button type="submit" id="btnAdd">Cadastrar Corrida</button>
+            <button type="submit" id="btnAdd" (submit)="salvarCorrida()">Cadastrar Corrida</button>
             <button type="reset" id="btnLimpa">Limpar</button>
         </div>
 
