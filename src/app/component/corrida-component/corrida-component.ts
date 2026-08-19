@@ -21,6 +21,7 @@ export class CorridaComponent {
 
   constructor(private corridaServise : CorridaService){}
 
+  //FUNÇÃO PARA CADASTARAR E ALTERAR
   dadosFormulario(){
     const corrida = new Corrida()
     corrida.descricao_corrida = this.descricao_corrida
@@ -30,7 +31,17 @@ export class CorridaComponent {
     corrida.distancia25km = this.distancia25km
 
     this.corridaServise.salvarCorrida(corrida)
+
+    this.limparAtributos()
   }
 
+  //LIMPAR OS ATRIBUTOS
+  limparAtributos(){
+    this.descricao_corrida = ''
+    this.data_corrida = ''
+    this.distancia5km = false
+    this.distancia10km = false
+    this.distancia25km = false
+  }
 
 }
