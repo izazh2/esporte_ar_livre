@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CorridaService } from '../../service/corrida-service';
 import { Corrida } from '../../models/corrida';
+import { CorridaService } from '../../service/corrida/corrida-service';
 
 @Component({
   selector: 'app-corrida-component',
@@ -11,41 +11,26 @@ import { Corrida } from '../../models/corrida';
 })
 export class CorridaComponent {
 
-  descricao = ''
-  data = ''
-  dist5 = false
-  dist10 = false
-  dist20 = false
-  
-  constructor(private corridaService: CorridaService){}
+  //DEFININDO OS ATRIBUTOS DO COMPONENTE CorridaComponet
+  id = 0
+  descricao_corrida = ''
+  data_corrida = ''
+  distancia5km = false
+  distancia10km = false
+  distancia25km = false
 
-  exibe(){
-    console.log(this.descricao, this.data)
-  }
+  constructor(private corridaServise : CorridaService){}
 
-  salvarCorrida(){
+  dadosFormulario(){
     const corrida = new Corrida()
-    corrida.descricao = this.descricao
-    corrida.data = this.data
+    corrida.descricao_corrida = this.descricao_corrida
+    corrida.data_corrida = this.data_corrida
+    corrida.distancia5km = this.distancia5km
+    corrida.distancia10km = this.distancia10km
+    corrida.distancia25km = this.distancia25km
 
-    if (this.dist5) corrida.distancias.push('5km')
-    if (this.dist10) corrida.distancias.push('10km')
-    if (this.dist20) corrida.distancias.push('20km')
-
-    this.corridaService.adicionar(corrida)
-
-    this.corridaService.listar()
+    this.corridaServise.salvarCorrida(corrida)
   }
 
-  temDistancia(){
-     return this.dist5 || this.dist10 || this.dist20
-  }
 
-  limparAtributos(){
-    this.descricao = ''
-    this.data = ''  
-    this.dist5 = false
-    this.dist10 = false
-    this.dist20 = false
-  }
 }
