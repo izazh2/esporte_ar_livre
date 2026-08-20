@@ -3,26 +3,53 @@ import { CorridaService } from '../../service/corrida/corrida-service';
 import { Corrida } from '../../models/corrida';
 
 @Component({
-  selector: 'app-listar-corrida-component',
+  selector: 'app-corrida-lista-component',
   imports: [],
-  templateUrl: './listar-corrida-component.html',
-  styleUrl: './listar-corrida-component.css',
+  templateUrl: './corrida-lista-component.html',
+  styleUrl: './corrida-lista-component.css',
 })
-export class ListarCorridaComponent {
+export class CorridaListaComponent {
 
-  listaCorridas= signal<Corrida[]>([])
+  listaCorridas = signal<Corrida[]>([])
 
-  constructor(private corridaService: CorridaService){}
+  constructor(private corridaService: CorridaService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.listar()
   }
 
-  //listar
-  listar(){
-    console.log('Tsete')
-    console.table(this.corridaService.listarCorridas())
 
-    this.listaCorridas.set([...this.corridaService.listarCorridas()])
+  //listar
+  listar() {
+    this.corridaService.listarCorridas()
+      .subscribe({
+        next: (dadosCorrida) => {
+          this.listaCorridas.set([...dadosCorrida])
+        },
+        error: (msgErro) => {
+          console.log(msgErro)
+        }
+      })
   }
+
+  excluir(objCorrida: Corrida) {
+    if (confirm(`Deseja excluir a corrida ${objCorrida.descricao_corrida}`)) {
+      this.corridaService.excluirCorrida(objCorrida.id)
+        .subscribe({
+          next: (repostaAPI) => {
+            this.listaCorridas.update(elem =>
+              elem.filter(a => a.id !== objCorrida.id)            )
+            console.log('Atleta excluído com Sucesso ', repostaAPI)
+          },
+          error: (msgErro) => {
+            return msgErro
+          }
+        })
+    }
+
+    this.ngOnInit()
+
+  }
+
+
 }
