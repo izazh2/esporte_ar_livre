@@ -4,7 +4,7 @@ import { HomeComponent } from './component/home-component/home-component';
 import { AtletaComponent } from './component/atleta-component/atleta-component';
 import { CorridaComponent } from './component/corrida-component/corrida-component';
 import { AtletaListaComponent } from './component/listar-atleta-component/listar-atleta-component';
-import { ListarCorridaComponent } from './component/listar-corrida-component/listar-corrida-component';
+import { CorridaListaComponent } from './component/listar-corrida-component/listar-corrida-component';
 
 
 export const routes: Routes = [
@@ -36,6 +36,6 @@ export const routes: Routes = [
     },
     {
         path: 'listarcorrida',
-        component: ListarCorridaComponent
+        component: CorridaListaComponent
     }
 ];
