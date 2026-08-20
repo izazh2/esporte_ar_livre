@@ -24,21 +24,29 @@ export class CorridaService {
         })
     }
 
-    listarCorridas(){
+    //listar todas corridas
+    listarCorridas() : Corrida[] {
+        let listaCorrida: Corrida[] =[]
         const urlAPI =`https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/`
 
         this.http.get<Corrida[]>(urlAPI)
         .subscribe({
             next:(corridaAPI)=>{
+                listaCorrida = corridaAPI
+                console.table(listaCorrida)
+                
                 return corridaAPI
             },
             error:(msgErro)=>{
                 return msgErro
             }
         })
+
+        return[]
     }
     
-    listarCorrida(idCorrida : Number){
+    //Listar uma corrida
+    listarCorrida(idCorrida : Number) : Partial<Corrida>{
         const urlAPI =`https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`
 
         this.http.get<Corrida>(urlAPI)
@@ -50,6 +58,8 @@ export class CorridaService {
                 return msgErro
             }
         })
+
+        return{}
     }
 
     excluirCorrida(idCorrida: Number){
