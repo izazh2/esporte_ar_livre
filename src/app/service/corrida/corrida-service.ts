@@ -1,70 +1,68 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Corrida } from '../../models/corrida';
+import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class CorridaService {
+  constructor(private http: HttpClient) { }
 
-    constructor(private http: HttpClient){}
+  //SALVAR A CORRIDA
+  salvarCorrida(corrida: Corrida) : Observable<Corrida> {
+    const urlAPi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida`
 
-    salvarCorrida(corrida: Corrida){
-        const urlAPI =`https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida`
+    return this.http.post<Corrida>(urlAPi, corrida)
 
-        this.http.post<Corrida>(urlAPI,corrida)
-        .subscribe({
-            next:(repostaAPI)=>{
-                return repostaAPI
-            },
-            error:(msgErro)=>{
-                return msgErro
-            }
-        })
-    }
+  }
 
-    
+  //LISTAR TODAS AS CORRIDAS
+  listarCorridas(): Observable<Corrida[]> {
+    const urlAPi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida`
 
-    //listar todas corridas
-    listarCorridas() : Observable<Corrida[]> {
-        const urlAPI =`https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/`
+    return this.http.get<Corrida[]>(urlAPi)
 
-        return this.http.get<Corrida[]>(urlAPI)
-    }
-    
-    //Listar uma corrida
-    listarCorrida(idCorrida : Number) : Observable<Corrida> {
-        const urlAPI =`https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`
+  }
 
-        return this.http.get<Corrida>(urlAPI)
-    }
+  //LISTAR UMA CORRIDA
+  listarCorrida(idCorrida: Number): Observable<Corrida> {
+    const urlAPi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`
 
-    excluirCorrida(idCorrida: Number){
-        const urlAPI =`https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`
+    return this.http.get<Corrida>(urlAPi)
 
-        this.http.delete<Corrida>(urlAPI)
-        .subscribe({
-            next:(repostaAPI)=>{
-                return repostaAPI
-            },
-            error:(msgErro)=>{
-                return msgErro
-            }
-        })
-    }
+  }
 
-    alterarCorrida(corrida: Corrida){
-        const urlAPI =`https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${corrida.id}`
+  //EXCLUIR UMA CORRIDA
+  excluirCorrida(idCorrida: Number) {
+    const urlAPi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`
 
-        this.http.put<Corrida>(urlAPI, corrida)
-        .subscribe({
-            next:(repostaAPI)=>{
-                return repostaAPI
-            },
-            error:(msgErro)=>{
-                return msgErro
-            }
-        })
-    }
+    return this.http.delete<Corrida>(urlAPi)
+
+    /*.subscribe({
+      next: (repostaAPI) => {
+        return repostaAPI
+      },
+      error: (msgErro) => {
+        return msgErro
+      }
+    })*/
+
+  }
+
+  //ALTERAR CORRIDA
+  alterarCorrida(corrida: Corrida) {
+    const urlAPi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${corrida.id}`
+
+    this.http.put<Corrida>(urlAPi, corrida)
+      .subscribe({
+        next: (repostaAPI) => {
+          return repostaAPI
+        },
+        error: (msgErro) => {
+          return msgErro
+        }
+      })
+  }
+
 }
