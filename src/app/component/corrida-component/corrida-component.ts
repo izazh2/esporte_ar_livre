@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Corrida } from '../../models/corrida';
 import { CorridaService } from '../../service/corrida/corrida-service';
 
+
 @Component({
   selector: 'app-corrida-component',
   imports: [FormsModule],
@@ -29,8 +30,17 @@ export class CorridaComponent {
     corrida.distancia5km = this.distancia5km
     corrida.distancia10km = this.distancia10km
     corrida.distancia25km = this.distancia25km
+    
 
     this.corridaServise.salvarCorrida(corrida)
+    .subscribe({
+      next: (respostaAPI) => {
+        return respostaAPI
+      },
+      error: (msgErro) => {
+        return msgErro
+      }
+    })
 
     this.limparAtributos()
   }
