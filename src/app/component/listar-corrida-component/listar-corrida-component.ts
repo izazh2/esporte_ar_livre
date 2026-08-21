@@ -3,15 +3,13 @@ import { CorridaService } from '../../service/corrida/corrida-service';
 import { Corrida } from '../../models/corrida';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-corrida-lista-component',
+  selector: 'app-listar-corrida-component',
   imports: [],
-  templateUrl: './corrida-lista-component.html',
-  styleUrl: './corrida-lista-component.css',
+  templateUrl: './listar-corrida-component.html',
+  styleUrl: './listar-corrida-component.css',
 })
-export class CorridaListaComponent {
-
+export class ListarCorridaComponent {
   listaCorridas = signal<Corrida[]>([])
 
   constructor(
@@ -61,6 +59,7 @@ export class CorridaListaComponent {
     this.router.navigate(["/alteracorrida", ObjCorrida.id])
     
   }
+
 
 
 }
