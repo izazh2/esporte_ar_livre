@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Corrida } from '../../models/corrida';
 import { CorridaService } from '../../service/corrida/corrida-service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,8 +12,7 @@ import { CorridaService } from '../../service/corrida/corrida-service';
   styleUrl: './corrida-component.css',
 })
 export class CorridaComponent {
-
-  //DEFININDO OS ATRIBUTOS DO COMPONENTE CorridaComponet
+  //DEFININDO OS ATRIBUTOS DO COMPONENTE CorridaComponent
   id = 0
   descricao_corrida = ''
   data_corrida = ''
@@ -20,33 +20,84 @@ export class CorridaComponent {
   distancia10km = false
   distancia25km = false
 
-  constructor(private corridaServise : CorridaService){}
+  idCorrida = 0
+  editar = false
 
-  //FUNÇÃO PARA CADASTARAR E ALTERAR
-  dadosFormulario(){
+  constructor(
+    private corridaService: CorridaService,
+    private activeRoute: ActivatedRoute,
+    private cdr: ChangeDetectorRef
+
+  ) { }
+
+  ngOnInit() {
+    this.idCorrida = Number(this.activeRoute.snapshot.paramMap.get('id'))
+
+    if (this.idCorrida > 0) {
+      this.editar = true
+      this.carregaDados(this.idCorrida)
+    }
+
+  }
+
+  //FUNÇÃO PARA CADASTRAR E ALTERAR
+  dadosFormulario() {
     const corrida = new Corrida()
     corrida.descricao_corrida = this.descricao_corrida
     corrida.data_corrida = this.data_corrida
     corrida.distancia5km = this.distancia5km
     corrida.distancia10km = this.distancia10km
     corrida.distancia25km = this.distancia25km
-    
 
-    this.corridaServise.salvarCorrida(corrida)
-    .subscribe({
-      next: (respostaAPI) => {
-        return respostaAPI
-      },
-      error: (msgErro) => {
-        return msgErro
-      }
-    })
+    if (this.editar) {
+      corrida.id = this.idCorrida
+      
+      this.corridaService.alterarCorrida(corrida)
+        .subscribe({
+          next: (respostaAPI) => {
+            return respostaAPI
+          },
+          error: (msgErro) => {
+            return msgErro
+          }
+        })
+
+    } else {
+      this.corridaService.salvarCorrida(corrida)
+        .subscribe({
+          next: (respostaAPI) => {
+            return respostaAPI
+          },
+          error: (msgErro) => {
+            return msgErro
+          }
+        })
+    }
 
     this.limparAtributos()
+
+  }
+
+  carregaDados(idCorrida: number) {
+    this.corridaService.listarCorrida(idCorrida)
+      .subscribe({
+        next: (dadosCorrida) => {
+          this.descricao_corrida = dadosCorrida.descricao_corrida
+          this.data_corrida = dadosCorrida.data_corrida
+          this.distancia5km = dadosCorrida.distancia5km
+          this.distancia10km = dadosCorrida.distancia10km
+          this.distancia25km = dadosCorrida.distancia25km
+
+          this.cdr.detectChanges()
+        },
+        error: (msgErro) => {
+          return msgErro
+        }
+      })
   }
 
   //LIMPAR OS ATRIBUTOS
-  limparAtributos(){
+  limparAtributos() {
     this.descricao_corrida = ''
     this.data_corrida = ''
     this.distancia5km = false
