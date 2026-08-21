@@ -4,8 +4,8 @@ import { HomeComponent } from './component/home-component/home-component';
 import { AtletaComponent } from './component/atleta-component/atleta-component';
 import { CorridaComponent } from './component/corrida-component/corrida-component';
 import { AtletaListaComponent } from './component/listar-atleta-component/listar-atleta-component';
-import { CorridaListaComponent } from './component/listar-corrida-component/listar-corrida-component';
-
+import { ListarCorridaComponent } from './component/listar-corrida-component/listar-corrida-component';
+import { InscricaoAtletaComponent } from './component/inscricao-atleta-component/inscricao-atleta-component';
 
 export const routes: Routes = [
     {
@@ -40,6 +40,10 @@ export const routes: Routes = [
     },
     {
         path: 'listarcorrida',
-        component: CorridaListaComponent
+        component: ListarCorridaComponent
+    },
+    {
+        path: 'inscricao',
+        component: InscricaoAtletaComponent
     }
 ];
