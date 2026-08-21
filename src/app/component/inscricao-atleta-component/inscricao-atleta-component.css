@@ -1,0 +1,116 @@
+/* Estilo geral da caixa do formulário */
+#div-form {
+    width: 1000px;
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    font-family: Arial, sans-serif;
+}
+
+/* Título */
+h2 {
+    color: var(--cor_primaria);
+    margin-bottom: 25px;
+    margin-top: 0;
+    font-size: 22px;
+}
+
+/* Organização do formulário em 2 colunas */
+#form-inscricao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    align-items: center;
+}
+
+/* Formatação dos Rótulos (Labels) */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+    text-transform: none; /* Mantém maiúsculas/minúsculas padrão para leitura */
+}
+
+/* Inputs e Selects genéricos */
+input[type="text"], 
+select {
+    width: 100%;
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Distâncias (Checkboxes / Radios em linha) */
+#div-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 40px;
+    font-size: 14px;
+    color: #555;
+}
+
+#div-checkbox, input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0 4px 0 0;
+    cursor: pointer;
+}
+
+/* Banner do Valor da Inscrição */
+#valor-inscricao {
+    grid-column: 1 / -1; /* Ocupa as 2 colunas */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 15px 20px;
+    margin-top: 10px;
+}
+
+#valor-inscricao h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+#valor-inscricao span {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--botao01); /* Usa sua variável ou verde padrão */
+}
+
+/* Botão de Finalizar */
+#div-btn {
+    grid-column: 1 / -1;
+    margin-top: 15px;
+}
+
+#bnt-finalizar {
+    width: 100%;
+    height: 45px;
+    background-color: var(--botao01);
+    color: var(--branca);
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+#bnt-finalizar:hover {
+    filter: brightness(0.9);
+}
+
+
