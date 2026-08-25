@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AtletaListaComponent {
 
-  //DECLARAÇÃO ARRAY DO TIPO PESSOA
+ //DECLARAÇÃO ARRAY DO TIPO PESSOA
   //listaAtletas: Atleta[] = []
   listaAtletas = signal<Atleta[]>([])
 
@@ -32,7 +32,7 @@ export class AtletaListaComponent {
           this.listaAtletas.set([...dados].sort((a, b) => a.nome.localeCompare(b.nome)))
         },
         error: (msgErro) => {
-          console.log("Erro ao cadastrar  o atleta ", msgErro)
+          console.log("Erro ao listar  o atleta ", msgErro)
         }
 
       })
@@ -57,11 +57,18 @@ export class AtletaListaComponent {
       })
 
     }
+    
     this.ngOnInit()
   }
 
   //ALTERAR DADOS
   buscarPessoa(idAtleta: Atleta){
-    this.router.navigate(['/cadastroatleta', idAtleta])
+    this.router.navigate(['/cadastroatleta', idAtleta.id])
   }
-}
+
+  calcIdade(data_nascimento: string){
+    return this.http.calcularIdade(data_nascimento)
+  }
+
+  
+}//FIM COMPONENT AtletaListaComponent
