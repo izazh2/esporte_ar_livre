@@ -120,7 +120,7 @@ describe('AtletaListaComponent', () => {
  
   })
 
-  it('Resultado esperado  alterar atletas', () =>{
+  it('Resultado excluir atletas', () =>{
     const atleta : Atleta = {
       "nome": "Isa",
       "cpf": 12345678910,
