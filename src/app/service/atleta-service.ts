@@ -8,44 +8,59 @@ import { Atleta } from '../models/atleta';
 })
 export class AtletaService {
   //DECLARAÇÃO CONSTRUTOR
+  //DECLARAÇÃO CONSTRUTOR
   constructor(private http: HttpClient) { }
 
   //ADICIONAR NA API
   adicionarAtleta(atleta: Atleta): Observable<Atleta> {
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
+    //const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
+    const urlApi = `http://127.0.0.1:8000/pessoa/`
 
     return this.http.post<Atleta>(urlApi, atleta)
   }
 
   //LISTAR ATLETAS NA API
   listarAtletas(): Observable<Atleta[]> {
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
+    // const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
+
+    const urlApi = `http://127.0.0.1:8000/pessoa/`
 
     return this.http.get<Atleta[]>(urlApi)
   }
 
   //LISTAR ATLETA
-  listarAtleta(idAtleta: number):Observable<Atleta>{
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`
+  listarAtleta(idAtleta: number): Observable<Atleta> {
+    //const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`
+    const urlApi = `http://127.0.0.1:8000/pessoa/${idAtleta}`
 
     return this.http.get<Atleta>(urlApi)
   }
 
   //EXCLUIR NA API
-  exluirAtleta(atleta: Atleta): Observable<Atleta> {
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`
+  excluirAtleta(atleta: Atleta): Observable<Atleta> {
+    //const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`
+    const urlApi = `http://127.0.0.1:8000/pessoa/${atleta.id}`
 
     return this.http.delete<Atleta>(urlApi)
   }
 
   //ALTERAR NA API
-  alterarAtleta(atleta: Atleta):Observable<Atleta>{
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`
+  alterarAtleta(atleta: Atleta): Observable<Atleta> {
+    //const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`
+    
+    const urlApi = `http://127.0.0.1:8000/pessoa/${atleta.id}`
 
     return this.http.put<Atleta>(urlApi, atleta)
   }
 
- //CALCULAR A IDADE
+  //ALTERAR NA API
+  alterarAtleta2(idAtleta: number, atleta: Atleta): Observable<Atleta> {
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`
+
+    return this.http.put<Atleta>(urlApi, atleta)
+  }
+
+  //CALCULAR A IDADE
   //aaaa-MMM-dd - 2026-08-24
   calcularIdade(data_nascimento: string): number {
     const dt_nascimento = new Date(data_nascimento + "T00:00:00")
@@ -60,6 +75,32 @@ export class AtletaService {
 
     return idade
   }
+
+  //CALCULO IMC
+  calcularIMC(atleta: Atleta) {
+    return atleta.peso / (atleta.altura * atleta.altura)
+  }
+
+  /*SITUAÇÃO IMC
+  situacaoIMC(imc: number) {
+    let situacao = ''
+
+    if (imc <= 18.5) {
+      situacao = 'Abaixo do Peso'
+    } else if (imc <= 24.9) {
+      situacao = 'Normal'
+    } else if (imc <= 29.9) {
+      situacao = 'Sobrepeso'
+    } else if (imc <= 34.9) {
+      situacao = 'Obesidade I'
+    } else if (imc <= 39.9) {
+      situacao = 'Obesidade II (Severa)'
+    } else {
+      situacao = 'Obesidade III (Mórbida)'
+    }
+
+    return situacao
+  }*/
 
   /*
   private atletas: Pessoa[] = []
