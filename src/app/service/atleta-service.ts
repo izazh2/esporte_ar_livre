@@ -81,7 +81,7 @@ export class AtletaService {
     return atleta.peso / (atleta.altura * atleta.altura)
   }
 
-  /*SITUAÇÃO IMC
+  //SITUAÇÃO IMC
   situacaoIMC(imc: number) {
     let situacao = ''
 
@@ -100,7 +100,7 @@ export class AtletaService {
     }
 
     return situacao
-  }*/
+  }
 
   /*
   private atletas: Pessoa[] = []
