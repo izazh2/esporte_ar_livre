@@ -6,13 +6,13 @@
         <input type="text" name="nome" [(ngModel)] = "nome" id="nome" class="input01" required maxlength="80" placeholder="Informe seu nome">
 
         <label for="cpf">CPF</label>
-        <input type="text" name="cpf" [(ngModel)] ="cpf" id="cpf" class="input02" required maxlength="14" placeholder="Informe seu cpf">
+        <input type="number" name="cpf" [(ngModel)] ="cpf" id="cpf" class="input02" required maxlength="14" placeholder="Informe seu cpf">
 
         <label for="altura">Altura</label>
-        <input type="text" name="altura" [(ngModel)]="altura" id="altura" class="input02" required maxlength="14" placeholder="Informe seu altura">
+        <input type="number" name="altura" [(ngModel)]="altura" id="altura" class="input02" required maxlength="14" placeholder="Informe seu altura">
 
         <label for="peso">peso</label>
-        <input type="text" name="peso" [(ngModel)]="peso" id="peso" class="input02" required maxlength="14"placeholder="Informe seu peso">
+        <input type="number" name="peso" [(ngModel)]="peso" id="peso" class="input02" required maxlength="14"placeholder="Informe seu peso">
 
         <label for="data_nascimento">Data Nascimento*</label>
         <input type="date" name="data_nascimento" [(ngModel)]="data_nascimento" id="data_nascimento" class="input02" maxlength="14" required>
@@ -40,7 +40,7 @@
         <input type="text" name="uf" [(ngModel)] = "uf" id="uf" class="input02" required maxlength="2" placeholder="Informe seu uf">
 
         <div id="div-btns">
-            <button type="submit" id="btnAdd">{{editar ? 'Alterar' : 'Salvar'}}Cadastrar Atleta </button>
+            <button type="submit" id="btnAdd">{{editar ? 'Alterar' : 'Cadastrar'}}Atleta </button>
             <button type="reset" id="btnLimpar"> Limpar Atleta </button>
         </div>
 
