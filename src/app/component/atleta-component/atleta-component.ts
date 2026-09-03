@@ -18,6 +18,8 @@ export class AtletaComponent {
   nome = ''
   cpf = 0
   data_nascimento = ''
+  peso = 0
+  altura = 0
   sexo = ''
   cep = 0
   rua_logradouro = ''
@@ -36,7 +38,7 @@ export class AtletaComponent {
 
   //DECLARAÇÃO DE FUNÇÕES
   exibeDados() {
-    console.log(this.nome, this.cpf, this.sexo, this.rua_logradouro, this.bairro, this.cidade, this.uf)
+    console.log(this.nome, this.cpf,this.peso, this.altura, this.sexo, this.rua_logradouro, this.bairro, this.cidade, this.uf)
   }
 
   ngOnInit() {
@@ -56,6 +58,8 @@ export class AtletaComponent {
           this.nome = objAtleta.nome
           this.cpf = objAtleta.cpf
           this.data_nascimento = objAtleta.data_nascimento
+          this.peso = objAtleta.peso
+          this.altura = objAtleta.altura
           this.sexo = objAtleta.sexo
           this.cep = objAtleta.cep
           this.rua_logradouro = objAtleta.rua_logradouro
@@ -77,6 +81,8 @@ export class AtletaComponent {
     pessoaAtleta.nome = this.nome
     pessoaAtleta.cpf = this.cpf
     pessoaAtleta.data_nascimento = this.data_nascimento
+    pessoaAtleta.peso = this.peso
+    pessoaAtleta.altura = this.altura
     pessoaAtleta.sexo = this.sexo
     pessoaAtleta.cep = this.cep
     pessoaAtleta.rua_logradouro = this.rua_logradouro
@@ -131,6 +137,8 @@ export class AtletaComponent {
     this.nome = ''
     this.cpf = 0
     this.data_nascimento = ''
+    this.peso = 0
+    this.altura = 0
     this.sexo = ''
     this.cep = 0
     this.rua_logradouro = ''
