@@ -37,11 +37,11 @@ export class ListarCorridaComponent {
 
   excluir(objCorrida: Corrida) {
     if (confirm(`Deseja excluir a corrida ${objCorrida.descricao_corrida}`)) {
-      this.corridaService.excluirCorrida(objCorrida.id)
+      this.corridaService.excluirCorrida(objCorrida.idcorrida)
         .subscribe({
           next: (repostaAPI) => {
             this.listaCorridas.update(elem =>
-              elem.filter(a => a.id !== objCorrida.id)            )
+              elem.filter(a => a.idcorrida !== objCorrida.idcorrida)            )
             console.log('Atleta excluído com Sucesso ', repostaAPI)
           },
           error: (msgErro) => {
@@ -56,7 +56,7 @@ export class ListarCorridaComponent {
 
   carregandoDadosForm(ObjCorrida: Corrida){
 
-    this.router.navigate(["/alteracorrida", ObjCorrida.id])
+    this.router.navigate(["/alteracorrida", ObjCorrida.idcorrida])
     
   }
 

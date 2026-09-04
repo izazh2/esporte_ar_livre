@@ -51,7 +51,7 @@ export class CorridaService {
   alterarCorrida(corrida: Corrida): Observable<Corrida> {
     //const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${corrida.id}`
 
-    const urlApi = `http://127.0.0.1:8000/corrida/${corrida.id}`
+    const urlApi = `http://127.0.0.1:8000/corrida/${corrida.idcorrida}`
 
     return this.http.put<Corrida>(urlApi, corrida)
 
