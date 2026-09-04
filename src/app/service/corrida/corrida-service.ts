@@ -43,7 +43,7 @@ export class CorridaService {
 
     const urlApi = `http://127.0.0.1:8000/corrida/${idCorrida}`
 
-    return this.http.get<Corrida>(urlApi)
+    return this.http.delete<Corrida>(urlApi)
 
   }
 
@@ -53,7 +53,7 @@ export class CorridaService {
 
     const urlApi = `http://127.0.0.1:8000/corrida/${corrida.id}`
 
-    return this.http.get<Corrida>(urlApi)
+    return this.http.put<Corrida>(urlApi, corrida)
 
       
   }
